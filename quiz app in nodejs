@@ -1,0 +1,44 @@
+const readlineSync = require("readline-sync");
+
+console.log("welcome to INDIAN quiz");
+
+console.log("\n");
+
+
+const questions = [
+  {question:"how many Rivers in India ? ",
+  answer:"7"},
+  {question:"How many States are there in India ?",
+  answer:"28"},
+  {question:"Who is the first president of India ?",
+  answer:"dr rajendra prasad"},
+  {question:"Who wrote Indian National Anthem ?",
+  answer:"rabindranath tagore"},
+  {question:"Who is the first Indian Pilot ?",
+  answer:"jrd tata"},
+  {question:"Who is the first Miss India ?",
+  answer:"reita faria"}
+];
+
+
+for(let i=0; i<questions.length; i++){
+  let currentq = questions[i];
+  quiz(currentq.question, currentq.answer);
+}
+
+var score = 0;
+function quiz(question, answer){
+  var userAnswer = readlineSync.question(question);
+  if(userAnswer == answer){
+    console.log("correct! ");
+    score++;
+  }
+  else{
+    console.log("wrong! ");
+    score--;
+  }
+  console.log("your score is ",score);
+  console.log("-------------------");
+}
+
+console.log("YOUR FINAL SCORE IS: " + score+"/10")
